@@ -28,3 +28,10 @@ jobs:
         run: |
           git status
           git log --oneline -5
+
+      - name: Test Secret
+        run: |
+          echo "Secret is available to the workflow"
+          echo "Length: ${#TEST_SECRET}"
+        env:
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}
