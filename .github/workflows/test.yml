@@ -1,4 +1,4 @@
-name: Test Workflow
+name: Linux Test
 
 on:
   push:
@@ -13,5 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Test
-        run: echo "GitHub Actions is working!"
+      - name: Check repository
+        run: |
+          echo "Current directory:"
+          pwd
+
+          echo "Repository contents:"
+          ls -la
+
+          echo "README contents:"
+          cat README.md
+
+      - name: Check Git
+        run: |
+          git status
+          git log --oneline -5
